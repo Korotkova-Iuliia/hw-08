@@ -18,8 +18,8 @@ imageContainer.insertAdjacentHTML('beforeend', imagesMarkup);
 console.log(imageContainer);
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
-  //   captionDelay: 250,
-  //   enableKeyboard: true,
-  //   animationSlide: true,
-  //   animationSpeed: 250,
+  captionDelay: 250,
+  enableKeyboard: true,
+  animationSlide: true,
+  animationSpeed: 250,
 });
