@@ -1,15 +1,14 @@
 import Player from '@vimeo/player';
 const iframe = document.querySelector('#vimeo-player');
 const player = new Player(iframe);
-console.log(iframe);
-console.log(player);
+// console.log(iframe);
+// console.log(player);
 
+iframe.addEventListener('timeupdate', event => {
+  console.log('The currentTime attribute has been updated. Again.');
+});
 player.on('play', function () {
   console.log('played the video!');
-});
-
-player.getVideoTitle().then(function (title) {
-  console.log('title:', title);
 });
 // const Player = require('@vimeo/player');
 
