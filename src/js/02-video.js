@@ -1,15 +1,17 @@
-import Player from '@vimeo/player';
-const iframe = document.querySelector('#vimeo-player');
-const player = new Player(iframe);
-// console.log(iframe);
+var iframe = document.querySelector('iframe');
+var player = new Vimeo.Player(iframe);
+// import Player
+// const iframe = document.querySelector('#vimeo-player');
+// const player = new Player(iframe);
+// console.log('iframe');
 // console.log(player);
 
-iframe.addEventListener('timeupdate', event => {
-  console.log('The currentTime attribute has been updated. Again.');
-});
-player.on('play', function () {
-  console.log('played the video!');
-});
+// iframe.addEventListener('timeupdate', event => {
+//   console.log('The currentTime attribute has been updated. Again.');
+// });
+// player.on('play', function () {
+//   console.log('played the video!');
+// });
 // const Player = require('@vimeo/player');
 
 // const iframe = document.querySelector('#vimeo-player');
