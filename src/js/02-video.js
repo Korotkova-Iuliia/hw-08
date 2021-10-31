@@ -1,32 +1,54 @@
-import Player from '@vimeo/player';
+const Player = require('@vimeo/player');
 
-const iframe = document.querySelector('iframe');
+const iframe = document.querySelector('#vimeo-player');
+console.log(iframe);
+
 const player = new Vimeo.Player(iframe);
-// const player = new Player(iframeEl);
-// let timeOnPlayer = 0;
-const onPlay = function (data) {
-  console.log(data);
-  timeOnPlayer = data.seconds;
-  console.log(timeOnPlayer);
-};
-const callback = function (data) {
+console.log(Vimeo.Player);
+console.log(player);
+let timeCurrentPlayer = 'videoplayer-current-time';
+
+player.on('timeupdate', function (data) {
+  console.log(e.target);
   const timeStopPlayer = data.seconds;
   console.log(timeStopPlayer);
-  console.log(player.setCurrentTime);
-  player.setCurrentTime(timeStopPlayer).then(function (timeupdate) {
-    console.log(timeupdate);
-    console.log(player.setCurrentTime);
+});
+player
+  .getCurrentTime()
+  .then(function (seconds) {
+    // seconds = the current playback position
+  })
+  .catch(function (error) {
+    // an error occurred
   });
-};
-const onPlayInput = function () {
-  //   iframe[this.name] = this.value;
-  console.log(iframe[data.seconds]);
-  console.log(data.seconds);
-};
-player.on('play', onPlay);
-player.on('input', onPlayInput);
-player.on('pause', callback);
-// player.off('play', onPlay);
+// //  = 0;
+
+// const onPause = function (data) {
+//   console.log(this);
+//   const timeStopPlayer = data.seconds;
+//   console.log(timeStopPlayer);
+//   console.log(player.setCurrentTime);
+//   player.setCurrentTime(timeStopPlayer).then(function (timeupdate) {
+//     console.log(timeupdate);
+//     console.log(player.setCurrentTime);
+//   });
+// };
+// const onPlay = function (data) {
+//   console.log(data);
+//   timeOnPlayer = data.seconds;
+//   console.log(timeOnPlayer);
+// };
+
+// const onPlayInput = function (e) {
+//   //   iframe[this.name] = this.value;
+//   // console.log(iframe[data.seconds]);
+//   console.log(e.target);
+//   // console.log(data.seconds);
+// };
+// // player.on('play', onPlay);
+// player.on('input', onPlayInput);
+// // player.on('pause', onPause);
+// // player.off('play', onPlay);
 
 // function skip() {
 //   video.currentTime += Number(this.dataset.skip)
