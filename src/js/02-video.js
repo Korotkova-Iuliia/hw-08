@@ -1,27 +1,26 @@
-const Player = require('@vimeo/player');
+// const Player = require('@vimeo/player');
 
-const iframe = document.querySelector('#vimeo-player');
-console.log(iframe);
+// const iframe = document.querySelector('#vimeo-player');
+// console.log(iframe);
 
-const player = new Vimeo.Player(iframe);
-console.log(Vimeo.Player);
-console.log(player);
-let timeCurrentPlayer = 'videoplayer-current-time';
+// const player = new Vimeo.Player(iframe);
+// console.log(Vimeo.Player);
+// console.log(player);
+// let timeCurrentPlayer = 'videoplayer-current-time';
 
-player.on('timeupdate', function (data) {
-  console.log(e.target);
-  const timeStopPlayer = data.seconds;
-  console.log(timeStopPlayer);
-});
-player
-  .getCurrentTime()
-  .then(function (seconds) {
-    // seconds = the current playback position
-  })
-  .catch(function (error) {
-    // an error occurred
-  });
-// //  = 0;
+// player.on('timeupdate', function (data) {
+//   console.log(e.target);
+//   const timeStopPlayer = data.seconds;
+//   console.log(timeStopPlayer);
+// });
+// player
+//   .getCurrentTime()
+//   .then(function (seconds) {
+//     // seconds = the current playback position
+//   })
+//   .catch(function (error) {
+//     // an error occurred
+//   });
 
 // const onPause = function (data) {
 //   console.log(this);
