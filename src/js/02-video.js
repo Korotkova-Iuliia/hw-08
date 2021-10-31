@@ -1,11 +1,12 @@
-var iframe = document.querySelector('iframe');
-var player = new Vimeo.Player(iframe);
-// import Player
-// const iframe = document.querySelector('#vimeo-player');
-// const player = new Player(iframe);
-// console.log('iframe');
-// console.log(player);
+import Player from '@vimeo/player';
+const iframe = document.querySelector('#vimeo-player');
+const player = new Player(iframe);
+console.log('iframe');
+console.log(player);
 
+// duration: 571.563;
+// percent: 0.113;
+// seconds: 64.533;
 // iframe.addEventListener('timeupdate', event => {
 //   console.log('The currentTime attribute has been updated. Again.');
 // });
@@ -62,14 +63,6 @@ var player = new Vimeo.Player(iframe);
 // player.on('input', onPlayInput);
 // // player.on('pause', onPause);
 // // player.off('play', onPlay);
-
-// function skip() {
-//   video.currentTime += Number(this.dataset.skip)
-// }
-// function scrab(event) {
-//   const scrabTime = (event.offsetX / progress.offsetWidth) * video.duration
-//   video.currentTime = scrabTime
-// }
 //   .catch(function (error) {
 //     switch (error.name) {
 //       case 'RangeError':
@@ -81,6 +74,3 @@ var player = new Vimeo.Player(iframe);
 //         break;
 //     }
 //   });
-// duration: 571.563;
-// percent: 0.113;
-// seconds: 64.533;
