@@ -15,7 +15,10 @@ console.log(currentTimeStopPlayer);
 
 const callback = function (data) {
   const timeStopPlayer = data.seconds;
-  localStorage.setItem('videoplayer-current-time = data.seconds', timeStopPlayer);
+  currentTimeStopPlayer = localStorage.setItem(
+    'videoplayer-current-time = data.seconds',
+    timeStopPlayer,
+  );
   console.log(timeStopPlayer);
   //   player.setCurrentTime(timeStopPlayer).then(function (timeupdate) {
   //     console.log(timeupdate);
