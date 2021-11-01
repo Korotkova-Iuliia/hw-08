@@ -12,11 +12,16 @@ console.log(currentTimeStopPlayer);
 // console.log(timeStopPlayer);
 // console.log(currentTimeStopPlayer);
 // };
-
+const onPlaybackPlay = function (data) {
+  localStorage.setItem('videoplayer-current-time = data.seconds', data.seconds);
+  console.log(data);
+  console.log(data.seconds);
+};
 player
   .setCurrentTime(currentTimeStopPlayer)
   .then(function (seconds) {
     // player.on('pause', onPlaybackPause);
+    player.on('timeupdate', throttle(onPlaybackPlay, 1000));
   })
   .catch(function (error) {
     switch (error.name) {
@@ -29,14 +34,6 @@ player
         break;
     }
   });
-
-const onPlaybackPlay = function (data) {
-  localStorage.setItem('videoplayer-current-time = data.seconds', data.seconds);
-  console.log(data);
-  console.log(data.seconds);
-};
-
-player.on('timeupdate', throttle(onPlaybackPlay, 1000));
 
 // const onPlaybackPlay = function (data) {
 //   localStorage.setItem('videoplayer-current-time = data.seconds', data.seconds);
