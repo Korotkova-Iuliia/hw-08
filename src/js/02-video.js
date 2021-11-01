@@ -1,11 +1,12 @@
 import Player from '@vimeo/player';
-// var throttle = require('lodash.throttle');
+var throttle = require('lodash.throttle');
 const iframe = document.querySelector('#vimeo-player');
+
 const player = new Player(iframe);
 console.log(player);
 // _.throttle(func, [(wait = 0)], [(options = {})]);
 // var throttled = _.throttle(renewToken, 300000, { trailing: false });
-// jQuery(element).on('click', throttled);
+
 // player.on('eventName', function (data) {
 //   // data is an object containing properties specific to that event
 // });
@@ -13,38 +14,17 @@ console.log(player);
 let currentTimeStopPlayer = localStorage.getItem('videoplayer-current-time = data.seconds');
 console.log(currentTimeStopPlayer);
 
-const callback = function (data) {
-  const timeStopPlayer = data.seconds;
-  currentTimeStopPlayer = localStorage.setItem(
-    'videoplayer-current-time = data.seconds',
-    timeStopPlayer,
-  );
-  console.log(timeStopPlayer);
-  //   player.setCurrentTime(timeStopPlayer).then(function (timeupdate) {
-  //     console.log(timeupdate);
-  //   });
+const onPlaybackPause = function (data) {
+  //   const timeStopPlayer = data.seconds;
+  //   localStorage.setItem('videoplayer-current-time = data.seconds', timeStopPlayer);
+  //   console.log(timeStopPlayer);
+  //   console.log(currentTimeStopPlayer);
 };
-const onPlay = function (data) {
-  console.log(data);
-  timeOnPlayer = data.seconds;
-  console.log(timeOnPlayer);
-};
-
-const onPlayInput = function () {
-  //   iframe[this.name] = this.value;
-  console.log(iframe[data.seconds]);
-  console.log(data.seconds);
-};
-player.on('play', onPlay);
-player.on('input', onPlayInput);
-
-player.off('play', onPlay);
-player.on('pause', callback);
 
 player
   .setCurrentTime(currentTimeStopPlayer)
   .then(function (seconds) {
-    // seconds = the actual time that the player seeked to
+    player.on('pause', onPlaybackPause);
   })
   .catch(function (error) {
     switch (error.name) {
@@ -57,12 +37,16 @@ player
         break;
     }
   });
-
+player.on('timeupdate', function (data) {
+  const timeStopPlayer = data.seconds;
+  localStorage.setItem('videoplayer-current-time = data.seconds', timeStopPlayer);
+  console.log(data);
+  console.log(timeStopPlayer);
+});
+// _.throttle(currentTimeStopPlayer, [(wait = 0)], [(options = {})]);
 // ?????????????????????????????????????????????????
 
 // // // // // // // // // // // // // // // //
-// var throttle = require('lodash.throttle');
-
 // player.on('timeupdate', throttle(function (timeObj) {
 //     localStorage.setItem("videoplayer-current-time", JSON.stringify(timeObj.seconds));
 //     // console.log("timeUpdateFunc:", timeObj.seconds);
