@@ -1,8 +1,10 @@
 import Player from '@vimeo/player';
+var throttle = require('lodash.throttle');
 const iframe = document.querySelector('#vimeo-player');
 const player = new Player(iframe);
-console.log('iframe');
-console.log(player);
+// _.throttle(func, [(wait = 0)], [(options = {})]);
+// var throttled = _.throttle(renewToken, 300000, { trailing: false });
+// jQuery(element).on('click', throttled);
 
 // duration: 571.563;
 // percent: 0.113;
