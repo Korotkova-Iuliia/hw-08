@@ -6,7 +6,7 @@
   "homepage": "https://Korotkova-Iuliia.github.io/hw-08",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/index.html --public-url /hw-08/"
+    "build": "parcel build src/*.html --public-url /hw-08/"
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,5 @@
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
   },
-  "dependencies": {
-    "@vimeo/player": "^2.16.1",
-    "simplelightbox": "^2.9.0"
-  }
+  "dependencies": {}
 }
