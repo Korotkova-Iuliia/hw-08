@@ -1,8 +1,8 @@
-// import SimpleLightbox from 'simplelightbox';
+import SimpleLightbox from 'simplelightbox';
 // import 'simplelightbox/dist/simple-lightbox.min.css';
 // // Add imports above this line
-// import { galleryItems } from './gallery-items.js';
-const { galleryItems } = require('./gallery-items.js');
+import { galleryItems } from './gallery-items.js';
+
 // Change code below this line
 
 const imageContainer = document.querySelector('.gallery');
@@ -16,10 +16,10 @@ const imagesMarkup = galleryItems
 
 imageContainer.insertAdjacentHTML('beforeend', imagesMarkup);
 console.log(imageContainer);
-// const lightbox = new SimpleLightbox('.gallery a', {
-//   captionsData: 'alt',
-//   captionDelay: 250,
-//   enableKeyboard: true,
-//   animationSlide: true,
-//   animationSpeed: 250,
-// });
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+  enableKeyboard: true,
+  animationSlide: true,
+  animationSpeed: 250,
+});
