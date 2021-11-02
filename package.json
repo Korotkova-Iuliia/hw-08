@@ -1,16 +1,16 @@
 {
-  "name": "parcel-project-template",
+  "name": "hw-08",
   "version": "1.1.0",
   "description": "Включите отображение скрытых файлов и папок в проводнике своей операционной системы, иначе вы не\r сможете выбрать и скопировать себе файлы настроек проекта, имена которых начинаются с точки.",
   "main": "index.js",
-  "homepage": "https://Korotkova-Iuliia.github.io/hw-08",
+  "homepage": "https://Korotkova-Iuliia.github.io/Korotkova-Iuliia",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /hw-08/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://github.com/Korotkova-Iuliia/Korotkova-Iuliia.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
