@@ -4,8 +4,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { galleryItems } from './gallery-items';
 // Change code below this line
 
-console.log(galleryItems);
-const imageContainer = document.querySelector('.gallery');
+const imageContainer = window.document.querySelector('.gallery');
 const imagesMarkup = galleryItems
   .map(({ preview, original, description }) => {
     return `<li><a class="gallery__item" href="${original}">
