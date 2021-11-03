@@ -16,18 +16,13 @@ form.addEventListener('input', e => {
 form.addEventListener('submit', e => {
   e.preventDefault();
   const formData = new FormData(form);
-  // console.log(formData);
   formData.forEach(data => console.log(data));
   formData.forEach((email, message) => console.log(email, message));
-  inputData = {};
-  localStorage.removeItem(inputData);
-  console.log(e.target);
+  // inputData = {};
+  // localStorage.removeItem('inputData');
 });
-// form.addEventListener('reset', e => {
-//   inputData = {};
-//   localStorage.removeItem(inputData);
-//   console.log(e.target);
-// });
+
+// console.log(formData);
 
 function initForm() {
   let inputForm = localStorage.getItem('inputData');
@@ -48,4 +43,3 @@ function initForm() {
     form.elements[name].value = value;
   });
 }
-//  {  }

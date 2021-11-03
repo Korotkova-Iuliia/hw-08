@@ -6,10 +6,10 @@ const player = new Player(iframe);
 let currentTimeStopPlayer = localStorage.getItem('videoplayer-current-time = data.seconds');
 console.log(currentTimeStopPlayer);
 
-// const onPlaybackPause = function (data) {
-// const timeStopPlayer = data.seconds;
-// localStorage.setItem('videoplayer-current-time = data.seconds', timeStopPlayer);
-// // };
+const onPlaybackPause = function (data) {
+  const timeStopPlayer = data.seconds;
+  localStorage.setItem('videoplayer-current-time = data.seconds', timeStopPlayer);
+};
 const onPlaybackPlay = function (data) {
   localStorage.setItem('videoplayer-current-time = data.seconds', data.seconds);
 };
@@ -17,7 +17,7 @@ const onPlaybackPlay = function (data) {
 player
   .setCurrentTime(currentTimeStopPlayer)
   .then(function (seconds) {
-    // player.on('pause', onPlaybackPause);
+    player.on('pause', onPlaybackPause);
     player.on('timeupdate', throttle(onPlaybackPlay, 1000));
   })
   .catch(function (error) {
