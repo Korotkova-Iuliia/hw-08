@@ -2,26 +2,23 @@ import Player from '@vimeo/player';
 const throttle = require('lodash.throttle');
 const iframe = document.querySelector('#vimeo-player');
 const player = new Player(iframe);
+console.log(player);
 
-let currentTimeStopPlayer = localStorage.getItem('videoplayer-current-time = data.seconds');
+let currentTimeStopPlayer = localStorage.getItem('videoplayer-current-time');
 console.log(currentTimeStopPlayer);
 
-const onPlaybackPause = function (data) {
-  const timeStopPlayer = data.seconds;
-  localStorage.setItem('videoplayer-current-time = data.seconds', timeStopPlayer);
-  console.log()
-};
-const onPlaybackPlay = function (data) {
-  localStorage.setItem('videoplayer-current-time = data.seconds', data.seconds);
-  player.on('timeupdate', throttle(onPlaybackPlay, 1000));
-
-};
+const currentTimePlayer = player.on(
+  'timeupdate',
+  throttle(function (data) {
+    localStorage.setItem('videoplayer-current-time', data.seconds);
+    console.log(data.seconds);
+  }, 1000),
+);
 
 player
   .setCurrentTime(currentTimeStopPlayer)
   .then(function (seconds) {
-    // player.on('pause', onPlaybackPause);
-    player.on('timeupdate', throttle(onPlaybackPlay, 1000));
+    currentTimePlayer;
   })
   .catch(function (error) {
     switch (error.name) {
@@ -34,10 +31,3 @@ player
         break;
     }
   });
-
-// const onPlaybackPlay = function (data) {
-//   localStorage.setItem('videoplayer-current-time = data.seconds', data.seconds);
-// // };
-// const throttled = throttle(onPlaybackPlay, 1000);
-
-// Player.on('timeupdate', throttled);
